@@ -1,0 +1,150 @@
+/* Ensure the page background color is applied */
+body {
+  background-color: #dfb016; /* Light grey for the whole page */
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Apply background color to the container */
+.container {
+  background-color: #fff3e6; /* Light Orange or any color you prefer */
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Prevent overflow */
+  position: relative;
+}
+
+/* Header Section */
+h1 {
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  color: #2e2e2e;
+}
+
+/* Input section styling */
+form {
+  margin-bottom: 20px;
+}
+
+/* Input fields styling */
+input.form-control {
+  font-size: 14px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+/* Book list styling */
+ul {
+  overflow-y: auto;
+  max-height: 400px; /* Adjust based on your desired scroll area */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* List group item styles */
+.list-group-item {
+  padding: 20px 25px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for list items */
+.list-group-item:hover {
+  background-color: #f1f1f1;
+}
+
+/* Status badges styling */
+.badge {
+  padding: 5px 12px;
+  border-radius: 12px;
+}
+
+.bg-success {
+  background-color: #4cd137; /* Green for Available */
+}
+
+.bg-danger {
+  background-color: #7700ff; /* Red for Borrowed */
+}
+
+/* Button Styles */
+button {
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+/* Buttons (color specific for actions) */
+button.btn-outline-warning {
+  background-color: #ffd166;
+}
+
+button.btn-outline-primary {
+  background-color: #118ab2;
+}
+
+button.btn-outline-danger {
+  background-color: #e20c0cf1;
+}
+
+button.btn-success {
+  background-color: #6c757d;
+}
+
+/* Space between input fields */
+.form-control {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+/* Add margin for book info */
+.bg-warning {
+  background-color: #f7b731;
+}
+
+.bg-info {
+  background-color: #4cd137;
+}
+
+.bg-primary {
+  background-color: #22a6b3;
+}
+
+.bg-secondary {
+  background-color: #dcdde1;
+}
+
+/* Font for lend/return buttons */
+button.btn-outline-warning,
+button.btn-outline-primary {
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Adjust layout to give more space and scrolling area */
+.container {
+  display: flex;
+  flex-direction: column;
+  max-height: 80vh;
+  justify-content: flex-start;
+}

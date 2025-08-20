@@ -1,0 +1,54 @@
+<div class="container">
+  <h1 class="text-center text-primary my-4">📚 Book Lending App</h1>
+
+  <!-- Add Book Form -->
+  <form (submit)="$event.preventDefault(); addBook()" class="mb-5 row g-3 align-items-center">
+    <div class="col-auto">
+      <input [(ngModel)]="newTitle" placeholder="Title" name="title" required class="form-control" />
+    </div>
+    <div class="col-auto">
+      <input [(ngModel)]="newAuthor" placeholder="Author" name="author" required class="form-control" />
+    </div>
+    <div class="col-auto">
+      <button class="btn btn-success">Add Book</button>
+    </div>
+  </form>
+
+  <!-- Book List -->
+  <ul class="list-group">
+    <li *ngFor="let b of books; let i = index" class="list-group-item d-flex justify-content-between align-items-center"
+      [ngClass]="getBookBgClass(i)">
+      <!-- Book Info -->
+      <div *ngIf="editBookId !== b.id" class="flex-grow-1 book-info">
+        <strong>{{ b.title }}</strong> — {{ b.author }}
+        <span class="badge ms-2" [ngClass]="{
+          'bg-success': b.status === 'available',
+          'bg-danger': b.status === 'borrowed'
+        }">
+          {{ b.status }}
+        </span>
+      </div>
+
+      <!-- Edit Book Form -->
+      <div *ngIf="editBookId === b.id" class="flex-grow-1">
+        <input [(ngModel)]="editTitle" name="editTitle" class="form-control mb-1" />
+        <input [(ngModel)]="editAuthor" name="editAuthor" class="form-control" />
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="btn-group ms-3">
+        <ng-container *ngIf="editBookId !== b.id; else editing">
+          <button class="btn btn-outline-warning btn-sm" (click)="toggleStatus(b)">
+            {{ b.status === 'available' ? 'Lend' : 'Return' }}
+          </button>
+          <button class="btn btn-outline-primary btn-sm" (click)="startEdit(b)">Edit</button>
+          <button class="btn btn-outline-danger btn-sm" (click)="deleteBook(b.id)">Delete</button>
+        </ng-container>
+        <ng-template #editing>
+          <button class="btn btn-success btn-sm" (click)="saveEdit(b.id)">Save</button>
+          <button class="btn btn-secondary btn-sm" (click)="cancelEdit()">Cancel</button>
+        </ng-template>
+      </div>
+    </li>
+  </ul>
+</div>
